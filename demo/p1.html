@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RxJs demo</title>
+<style type="text/css">
+#box {
+  -webkit-transform: translate(10px, 10px);
+          transform: translate(10px, 10px);
+  -webkit-transition: 0.05s -webkit-transform ease-out;
+  transition: 0.05s -webkit-transform ease-out;
+  transition: 0.05s transform ease-out;
+  transition: 0.05s transform ease-out, 0.05s -webkit-transform ease-out;
+  width: 40px;
+  height: 40px;
+  background: #ffa500;
+  border: 5px solid #f00;
+  cursor: pointer;
+}
+#box.blink {
+  -webkit-animation: 0.4s linear blinking;
+          animation: 0.4s linear blinking;
+}
+@-webkit-keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+<script src="https://cdn.jsdelivr.net/rxjs/4.1.0/rx.all.compat.min.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<script>
+const box = document.getElementById('box')
+const mouseDown$ = Rx.Observable.fromEvent(box, 'mousedown')
+const mouseMove$ = Rx.Observable.fromEvent(document, 'mousemove')
+const mouseUp$ = Rx.Observable.fromEvent(document, 'mouseup')
+
+mouseDown$.switchMap((event) => {
+  return Rx.Observable.of({
+    pos: getTranslate(box),
+    event,
+  })
+  .delay(200)
+  .takeUntil(mouseMove$)
+})
+.switchMap((initialState) => {
+  const initialPos = initialState.pos
+  const { clientX, clientY } = initialState.event
+  box.classList.add('blink')
+  return mouseMove$.map((moveEvent) => ({
+    x: moveEvent.clientX - clientX + initialPos.x,
+    y: moveEvent.clientY - clientY + initialPos.y,
+  }))
+  .takeUntil(mouseUp$.do(() => box.classList.remove('blink')))
+})
+.subscribe((pos) => {
+  setTranslate(box, pos)
+})
+
+function setTranslate (element, pos) {
+  box.style.transform = `translate(${pos.x}px, ${pos.y}px)`
+}
+
+function getTranslate (element) {
+  const style = getComputedStyle(element)
+  const regExp = /matrix\((\d+,\s){4}(\d+),\s(\d+)/i
+  const result = style.transform.match(regExp)
+  if (result) {
+    return {
+      x: parseInt(result[2], 10),
+      y: parseInt(result[3], 10)
+    }
+  } else {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
+}
+</script>
+</body>
+</html>
