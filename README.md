@@ -15,15 +15,15 @@ RxJS 中含有两个基本概念：Observables 与 Observer。Observables 作为
 
 - Promise
 
-  1.返回单个值
-  2.不可取消
+  1. 返回单个值
+  2. 不可取消
   
 - Observable
 
-  1.随着时间的推移发出多个值
-  2.可以取消的
-  3.支持 map、filter、reduce 等操作符
-  4.延迟执行，当订阅的时候才会开始执行
+  1. 随着时间的推移发出多个值
+  2. 可以取消的
+  3. 支持 map、filter、reduce 等操作符
+  4. 延迟执行，当订阅的时候才会开始执行
 
 ## Use
 
