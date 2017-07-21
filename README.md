@@ -40,3 +40,5 @@ example.subscribe(console.log);
 
 ![img](https://github.com/ozil-110/RxJs/blob/master/observable-operator.gif)
 
+## Learning materials
+
