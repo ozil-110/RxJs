@@ -42,10 +42,10 @@ example.subscribe(console.log);
 
 ## Learning materials
 
-[https://zhuanlan.zhihu.com/p/27721834]()RxJs福利,最新RxJs学习资料.
-[http://cn.rx.js.org/](http://cn.rx.js.org/)RxJs中文文档.
-[https://channel9.msdn.com/posts/Rx-and-Netflix](https://channel9.msdn.com/posts/Rx-and-Netflix)RxJs视频.
-[https://www.ctolib.com/topics-112872.html](https://www.ctolib.com/topics-112872.html)RxJS - Observable 详解.
+- [https://zhuanlan.zhihu.com/p/27721834]()RxJs福利,最新RxJs学习资料.
+- [http://cn.rx.js.org/](http://cn.rx.js.org/)RxJs中文文档.
+- [https://channel9.msdn.com/posts/Rx-and-Netflix](https://channel9.msdn.com/posts/Rx-and-Netflix)RxJs视频.
+- [https://www.ctolib.com/topics-112872.html](https://www.ctolib.com/topics-112872.html)RxJS - Observable 详解.
 
 ## redux-observable
 
@@ -63,5 +63,5 @@ redux作为react社区最热门的状态管理框架，其纯函数的写法避�
 
 ### Learning materials
 
-[https://redux-observable-cn.js.org/](https://redux-observable-cn.js.org/)redux-observable中文文档.
-[https://www.youtube.com/watch?v=AslncyG8whg](https://www.youtube.com/watch?v=AslncyG8whg)redux-observable视频.
+- [https://redux-observable-cn.js.org/](https://redux-observable-cn.js.org/)redux-observable中文文档.
+- [https://www.youtube.com/watch?v=AslncyG8whg](https://www.youtube.com/watch?v=AslncyG8whg)redux-observable视频.
