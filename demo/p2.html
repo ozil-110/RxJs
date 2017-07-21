@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RxJs demo</title>
+<style type="text/css">
+.box {
+  position: absolute;
+  -webkit-transform: translate(10px, 10px);
+          transform: translate(10px, 10px);
+  -webkit-transition: 0.1s -webkit-transform ease-out;
+  transition: 0.1s -webkit-transform ease-out;
+  transition: 0.1s transform ease-out;
+  transition: 0.1s transform ease-out, 0.1s -webkit-transform ease-out;
+  width: 40px;
+  height: 40px;
+  background: #ffa500;
+  cursor: pointer;
+}
+.box:nth-child(1) {
+  background: #f00;
+  z-index: 100;
+}
+.box:nth-child(2) {
+  background: #ffa500;
+  z-index: 99;
+  pointer-events: none;
+}
+.box:nth-child(3) {
+  background: #ff0;
+  z-index: 98;
+  pointer-events: none;
+}
+.box:nth-child(4) {
+  background: #008000;
+  z-index: 97;
+  pointer-events: none;
+}
+.box:nth-child(5) {
+  background: #0ff;
+  z-index: 96;
+  pointer-events: none;
+}
+.box:nth-child(6) {
+  background: #00f;
+  z-index: 95;
+  pointer-events: none;
+}
+.box:nth-child(7) {
+  background: #800080;
+  z-index: 94;
+  pointer-events: none;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/rxjs/4.1.0/rx.all.compat.min.js"></script>
+</head>
+<body>
+<div class="box" id="head"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<script type="text/javascript">
+const headBox = document.getElementById('head')
+const boxes = document.getElementsByClassName('box')
+const mouseDown$ = Rx.Observable.fromEvent(headBox, 'mousedown')
+const mouseMove$ = Rx.Observable.fromEvent(document, 'mousemove')
+const mouseUp$ = Rx.Observable.fromEvent(document, 'mouseup')
+const delayBoxes$ = Rx.Observable.from([].slice.call(boxes, 0))
+  .zip(Rx.Observable.interval(100).startWith(0), (box) => box)
+
+mouseDown$.map((e) => {
+  const pos = getTranslate(headBox)
+  return {
+    pos,
+    event: e,
+  }
+})
+.switchMap((initialState) => {
+  const initialPos = initialState.pos
+  const { clientX, clientY } = initialState.event
+  return mouseMove$.map((moveEvent) => ({
+    x: moveEvent.clientX - clientX + initialPos.x,
+    y: moveEvent.clientY - clientY + initialPos.y,
+  }))
+  .takeUntil(mouseUp$)
+})
+//可以改为switchMap和concatMap看效果
+.mergeMap((pos) => {
+  return delayBoxes$.do((box) => {
+    setTranslate(box, pos)
+  })
+})
+.subscribe()
+
+function getTranslate (element) {
+  const style = getComputedStyle(element)
+  const regExp = /matrix\((\d+,\s){4}(\d+),\s(\d+)/i
+  const result = style.transform.match(regExp)
+  if (result) {
+    return {
+      x: parseInt(result[2], 10),
+      y: parseInt(result[3], 10)
+    }
+  } else {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
+}
+
+function setTranslate (element, pos) {
+  element.style.transform = `translate(${pos.x}px, ${pos.y}px)`
+}
+
+</script>
+</body>
+</html>
