@@ -29,4 +29,14 @@ RxJS 中含有两个基本概念：Observables 与 Observer。Observables 作为
 
 上面的几个demo有助于入门理解RxJs的用法，RxJs提供了足够的操作符来处理这些值或事件的流集合，下图有助于理解RxJs中数组的操作符：
 
+```js
+var source = Rx.Observable.from([1,2,3,4,5]);
+var example = source
+              .filter(x => x % 2 === 0)
+              .map(x => x + 1)
+
+example.subscribe(console.log);
+```
+
 ![img](https://github.com/ozil-110/RxJs/blob/master/observable-operator.gif)
+
