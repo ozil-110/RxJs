@@ -42,3 +42,26 @@ example.subscribe(console.log);
 
 ## Learning materials
 
+[https://zhuanlan.zhihu.com/p/27721834]()RxJs福利,最新RxJs学习资料.
+[http://cn.rx.js.org/](http://cn.rx.js.org/)RxJs中文文档.
+[https://channel9.msdn.com/posts/Rx-and-Netflix](https://channel9.msdn.com/posts/Rx-and-Netflix)RxJs视频.
+[https://www.ctolib.com/topics-112872.html](https://www.ctolib.com/topics-112872.html)RxJS - Observable 详解.
+
+## redux-observable
+
+redux作为react社区最热门的状态管理框架，其纯函数的写法避开了副作用的产生，但它只能处理同步action，对于异步的acion必须借助中间件来拦截action，社区提供众多的中间件来处理，比如：
+
+- redux-thunk
+- redux-promise
+- redux-promise-middleware
+- redux-action-tools
+- redux-loop
+- redux-saga
+
+详细的介绍可以看[https://zhuanlan.zhihu.com/p/24337401](https://zhuanlan.zhihu.com/p/24337401)
+上面的方案可以根据具体的项目需求进行选择，但他们或多或少都有一些缺点。而redux-observable基于RxJs，用另一种思维方式，对于复杂的交互，更有优势。
+
+### Learning materials
+
+[https://redux-observable-cn.js.org/](https://redux-observable-cn.js.org/)redux-observable中文文档.
+[https://www.youtube.com/watch?v=AslncyG8whg](https://www.youtube.com/watch?v=AslncyG8whg)redux-observable视频.
