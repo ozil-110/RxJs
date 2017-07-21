@@ -49,6 +49,8 @@ example.subscribe(console.log);
 
 ## redux-observable
 
+![img](https://github.com/ozil-110/RxJs/blob/master/logo-small.gif)
+
 redux作为react社区最热门的状态管理框架，其纯函数的写法避开了副作用的产生，但它只能处理同步action，对于异步的acion必须借助中间件来拦截action，社区提供众多的中间件来处理，比如：
 
 - redux-thunk
@@ -63,5 +65,6 @@ redux作为react社区最热门的状态管理框架，其纯函数的写法避�
 
 ### Learning materials
 
+- [https://redux-observable.js.org](https://redux-observable.js.org)英文文档.
 - [https://redux-observable-cn.js.org/](https://redux-observable-cn.js.org/)redux-observable中文文档.
 - [https://www.youtube.com/watch?v=AslncyG8whg](https://www.youtube.com/watch?v=AslncyG8whg)redux-observable视频.
