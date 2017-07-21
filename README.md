@@ -13,12 +13,12 @@ RxJS 中含有两个基本概念：Observables 与 Observer。Observables 作为
 
 ### Observable vs Promise
 
-1.Promise
+#### 1.Promise
 
 - 返回单个值
 - 不可取消
   
-2.Observable
+#### 2.Observable
 
 - 随着时间的推移发出多个值
 - 可以取消的
