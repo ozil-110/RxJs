@@ -70,3 +70,4 @@ redux作为react社区最热门的状态管理框架，其纯函数的写法避�
 - [https://redux-observable.js.org](https://redux-observable.js.org)英文文档.
 - [https://redux-observable-cn.js.org/](https://redux-observable-cn.js.org/)redux-observable中文文档.
 - [https://www.youtube.com/watch?v=AslncyG8whg](https://www.youtube.com/watch?v=AslncyG8whg)redux-observable视频.
+- [https://github.com/ozil-110/ozil-110.github.io](https://github.com/ozil-110/ozil-110.github.io)博客.
