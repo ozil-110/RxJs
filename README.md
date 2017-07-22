@@ -46,6 +46,8 @@ example.subscribe(console.log);
 - [http://cn.rx.js.org/](http://cn.rx.js.org/)RxJs中文文档.
 - [https://channel9.msdn.com/posts/Rx-and-Netflix](https://channel9.msdn.com/posts/Rx-and-Netflix)RxJs视频.
 - [https://www.ctolib.com/topics-112872.html](https://www.ctolib.com/topics-112872.html)RxJS - Observable 详解.
+- [http://blog.csdn.net/tianjun2012/article/details/51245898](http://blog.csdn.net/tianjun2012/article/details/51245898)入门篇1
+- [http://jerryzou.com/posts/rxjs-practice-01/](http://jerryzou.com/posts/rxjs-practice-01/)入门篇2
 
 ## redux-observable
 
