@@ -48,6 +48,7 @@
 <body>
 <div id="box"></div>
 <script>
+//初始化事件流  
 const box = document.getElementById('box')
 const mouseDown$ = Rx.Observable.fromEvent(box, 'mousedown')
 const mouseMove$ = Rx.Observable.fromEvent(document, 'mousemove')
